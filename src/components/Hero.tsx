@@ -12,7 +12,7 @@ import {
   Cpu
 } from 'lucide-react';
 import { PERSONAL_INFO, ASSETS } from '../data/portfolioData';
-
+import home from "@/assets/images/hero_cyber_infrastructure_1792535536909.jpg";
 
 export const Hero: React.FC = () => {
   const [isScanning, setIsScanning] = useState(false);
@@ -230,7 +230,7 @@ export const Hero: React.FC = () => {
                 {/* Operations Center Image Banner */}
                 <div className="relative mt-4 h-28 w-full rounded-xl overflow-hidden border border-slate-200/80 shadow-inner">
                   <img
-                    src={ASSETS.heroCyberInfrastructure}
+                    src={home}
                     alt="Cybersecurity Operations and Defense Infrastructure"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"

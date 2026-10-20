@@ -1,5 +1,9 @@
 import { ServiceItem, ExpertiseGroup, ProcessStep, ProjectItem, TestimonialItem } from '../types';
-
+import heroCyberInfrastructure from '@/assets/images/project_security_scanner_1792535538415.jpg';
+import projectWordPressPlatform from '@/assets/images/project_wordpress_platform_1792535537433.jpg';
+import projectSecurityScanner from '@/assets/images/hero_cyber_infrastructure_1792535536909.jpg';
+import testimonialClientAvatar from '@/assets/images/testimonial_client_avatar_1792535537592.jpg';
+ 
 export const ASSETS = {
   heroCyberInfrastructure: '/src/assets/images/hero_cyber_infrastructure_1792535536909.jpg',
   aboutDeveloperPortrait: '/src/assets/images/about_developer_portrait_1792535537127.jpg',
@@ -264,7 +268,7 @@ export const PROJECTS: ProjectItem[] = [
     tagline: 'Automated offensive inspection engine analyzing HTTP security headers, TLS ciphers, and DNS posture in seconds.',
     description:
       'Engineered an open security auditing utility for dev teams to audit edge defenses, identify missing security policies (CSP, HSTS, X-Content-Type), and test TLS cipher compliance before deployment.',
-    imageUrl: ASSETS.heroCyberInfrastructure,
+    imageUrl: heroCyberInfrastructure,
     impactMetrics: ['<800ms Average Scan Latency', '100% OWASP Header Mapping', 'Automated JSON/CLI Reporting'],
     technologies: ['TypeScript', 'Node.js', 'Express', 'React', 'Docker'],
     deliverables: [
@@ -290,7 +294,7 @@ export const PROJECTS: ProjectItem[] = [
     tagline: 'Decoupled WordPress & WooCommerce infrastructure delivering sub-400ms TTFB across multi-region edge caches.',
     description:
       'Designed and deployed a decoupled enterprise commerce architecture utilizing WordPress as a headless content/catalog engine connected to a performant React storefront with Redis caching and distributed Edge workers.',
-    imageUrl: ASSETS.projectWordPressPlatform,
+    imageUrl: projectWordPressPlatform,
     impactMetrics: ['340ms Global Median TTFB', '99.98% Uptime Under Flash Sale Load', 'Zero Database Lockups'],
     technologies: ['WordPress REST API', 'React', 'Redis Object Cache', 'MariaDB', 'Cloudflare Workers'],
     deliverables: [
@@ -314,7 +318,7 @@ export const PROJECTS: ProjectItem[] = [
     tagline: 'Methodical authorized security assessment covering broken authorization, JWT replay vectors, and privilege escalation.',
     description:
       'Conducted a structured, authorized penetration test against an early-stage financial technology portal, discovering logic flaws in token refresh cycles and authorization perimeter weaknesses before public release.',
-    imageUrl: ASSETS.projectSecurityScanner,
+    imageUrl: projectSecurityScanner,
     impactMetrics: ['14 Vulnerabilities Triaged', 'Zero Production Exploitations', 'Executive & Technical Fix Guide'],
     technologies: ['Burp Suite Professional', 'OWASP ZAP', 'Python', 'Bash Scripting', 'Hardened Linux'],
     deliverables: [
@@ -337,7 +341,7 @@ export const PROJECTS: ProjectItem[] = [
     tagline: 'Full-stack front-end asset re-engineering, removing render-blocking bloat and achieving green Core Web Vitals.',
     description:
       'Re-engineered a high-volume WordPress editorial magazine receiving over 500k monthly readers, eliminating render-blocking CSS/JS, modernizing image pipelines, and boosting Lighthouse performance.',
-    imageUrl: ASSETS.projectWordPressPlatform,
+    imageUrl: projectWordPressPlatform,
     impactMetrics: ['98/100 Mobile Lighthouse', 'LCP dropped from 3.8s to 1.1s', 'CLS dropped to 0.008'],
     technologies: ['Critical CSS Engine', 'WebP/AVIF Pipeline', 'Brotli Compression', 'WordPress Hooks', 'Lighthouse CI'],
     deliverables: [
@@ -360,7 +364,7 @@ export const PROJECTS: ProjectItem[] = [
     tagline: 'Multi-layer security configuration framework mitigating brute-force attacks, XML-RPC abuse, and unauthorized execution.',
     description:
       'Created an automated hardening matrix for high-risk WordPress instances that locks down attack vectors, isolates upload directory scripts, validates admin IP allowlists, and enforces strict server permissions.',
-    imageUrl: ASSETS.projectSecurityScanner,
+    imageUrl: projectSecurityScanner,
     impactMetrics: ['99.4% Reduction in Bot Probes', 'Zero Core File Modifications', 'Hardened Permissions (chmod 640/750)'],
     technologies: ['Nginx Hardening Rules', 'Fail2ban Jails', 'PHP 8.3 OPcache', 'Security Headers', 'Linux sysctl'],
     deliverables: [
@@ -383,7 +387,7 @@ export const PROJECTS: ProjectItem[] = [
     tagline: 'Unified multi-country localized digital platform supporting 12 regions with custom RBAC access and shared design system tokens.',
     description:
       'Architected a centralized WordPress multisite network for an international B2B organization, allowing regional teams in the US, Europe, and Asia-Pacific to publish localized content under uniform governance.',
-    imageUrl: ASSETS.projectWordPressPlatform,
+    imageUrl: projectWordPressPlatform,
     impactMetrics: ['12 Regional Portals Synchronized', 'Single Codebase Deployment', 'Sub-500ms Regional CDN Delivery'],
     technologies: ['WordPress Multisite', 'PHP 8.3', 'Custom REST APIs', 'Tailwind CSS', 'MariaDB'],
     deliverables: [
@@ -407,7 +411,7 @@ export const PROJECTS: ProjectItem[] = [
     tagline: 'Deep inspection of patient portal endpoints, verifying data encryption, session timeouts, and rate-limiting resilience.',
     description:
       'Performed an authorized offensive audit on patient record transmission routes, ensuring strict CORS isolation, secure JWT lifecycle handling, and defense against automated scraping attacks.',
-    imageUrl: ASSETS.projectSecurityScanner,
+    imageUrl: projectSecurityScanner,
     impactMetrics: ['Strict Zero-Trust Compliance', 'Sensitive Data Masking Validated', 'Hardened Token Expiry Lifecycles'],
     technologies: ['Postman Security Rig', 'JWT Auditing Tools', 'Docker', 'Bash Automation', 'TLS 1.3'],
     deliverables: [
@@ -433,7 +437,7 @@ export const PROJECTS: ProjectItem[] = [
     tagline: 'End-to-end structural SEO revamp introducing dynamic JSON-LD nested schemas, breadcrumb hierarchy, and indexation hygiene.',
     description:
       'Engineered a custom technical SEO schema engine for a 20,000-SKU retail catalog, eliminating duplicate crawl paths, structuring rich product snippets, and establishing canonical tree consistency.',
-    imageUrl: ASSETS.projectWordPressPlatform,
+    imageUrl: projectWordPressPlatform,
     impactMetrics: ['+100% Rich Result Eligibility', 'Zero Orphaned Product URLs', 'Crawl Waste Reduced by 45%'],
     technologies: ['Schema.org JSON-LD', 'Google Search Console API', 'Custom WP Plugin', 'Screaming Frog Scripting'],
     deliverables: [
@@ -456,7 +460,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     name: 'David Vance',
     role: 'VP of Engineering',
     organization: 'FinScale Cloud Systems (US)',
-    avatar: ASSETS.testimonialClientAvatar,
+    avatar: testimonialClientAvatar,
     quote:
       'Adil conducted a structured offensive security audit on our patient-facing portal and API gateway. His remediation report gave our developers immediate, actionable steps to eliminate authorization risks before public launch.',
     outcome: 'Zero High-Risk Production Exposure',
@@ -467,7 +471,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     name: 'Marcus Chen',
     role: 'Technical Operations Director',
     organization: 'Omnia Global Media',
-    avatar: ASSETS.testimonialClientAvatar,
+    avatar: testimonialClientAvatar,
     quote:
       'Our high-volume WordPress publishing portal was failing Core Web Vitals under peak traffic. Adil redesigned our critical CSS pipeline and edge caching, taking our mobile Lighthouse score from 44 to 98 and cutting LCP by 71%.',
     outcome: '98/100 Mobile Lighthouse Score',
@@ -478,7 +482,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     name: 'Sarah Lindqvist',
     role: 'Co-Founder & Product Lead',
     organization: 'Nordic Digital Commerce',
-    avatar: ASSETS.testimonialClientAvatar,
+    avatar: testimonialClientAvatar,
     quote:
       'From custom multisite architecture to securing our database schemas, Adil brings a rare combination of offensive security acumen and deep WordPress internals. Truly battle-tested execution.',
     outcome: '12 Localized Portals Unified',

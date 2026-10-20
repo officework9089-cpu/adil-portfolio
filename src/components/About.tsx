@@ -1,6 +1,7 @@
 import React from 'react';
 import { Shield, Zap, Wrench, Globe2, Check } from 'lucide-react';
 import { PERSONAL_INFO, VALUE_PROPOSITIONS, ASSETS } from '../data/portfolioData';
+import about from "@/assets/images/about_developer_portrait_1792535537127.jpg";
 
 export const About: React.FC = () => {
   const valuePropIcons = [
@@ -62,7 +63,7 @@ export const About: React.FC = () => {
             <div className="relative rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm bg-white">
               <div className="relative h-64 sm:h-72 w-full overflow-hidden">
                 <img
-                  src={ASSETS.aboutDeveloperPortrait}
+                  src={about}
                   alt="Adil Khan - Cybersecurity Practitioner & WordPress Developer"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"

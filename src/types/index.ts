@@ -1,6 +1,6 @@
 export type ServiceId = 
   | 'offensive-security'
-  | 'wordpress-architecture'
+  | 'website-architecture'
   | 'technical-seo'
   | 'security-audits';
 
@@ -15,7 +15,7 @@ export interface ServiceItem {
 
 export type ProjectCategory = 
   | 'Offensive Security'
-  | 'WordPress Architecture'
+  | 'Website Architecture'
   | 'Technical SEO'
   | 'Full-Stack & Tools';
 
@@ -29,7 +29,7 @@ export interface ProjectItem {
   id: string;
   title: string;
   category: ProjectCategory;
-  filterGroup: 'Security' | 'WordPress' | 'Optimization' | 'Tools';
+  filterGroup: 'Security' | 'website' | 'Optimization' | 'Tools';
   tagline: string;
   description: string;
   imageUrl?: string;

@@ -4,9 +4,9 @@ import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Services } from './components/Services';
 import { Projects } from './components/Projects';
-import { Expertise } from './components/Expertise';
+// import { Expertise } from './components/Expertise';
 import { SecStackHQ } from './components/SecStackHQ';
-import { Approach } from './components/Approach';
+// import { Approach } from './components/Approach';
 import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -23,9 +23,9 @@ export default function App() {
       'about',
       'services',
       'projects',
-      'expertise',
+      // 'expertise',
       'secstackhq',
-      'approach',
+      // 'approach',
       'contact',
     ];
 
@@ -76,9 +76,9 @@ export default function App() {
         <About />
         <Services onSelectService={handleSelectService} />
         <Projects onSelectProjectForContact={handleSelectProjectForContact} />
-        <Expertise />
+        {/* <Expertise /> */}
         <SecStackHQ onCtaClick={handleScrollToContact} />
-        <Approach />
+        {/* <Approach /> */}
         <Testimonials onCtaClick={handleScrollToContact} />
         <Contact preSelectedService={selectedServiceForContact} />
       </main>

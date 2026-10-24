@@ -43,10 +43,10 @@ export const SecStackHQ: React.FC<SecStackHQProps> = ({ onCtaClick }) => {
         {/* Brand Lockup: Typographic Wordmark with Geometric Symbol */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 pb-12 border-b border-slate-800">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/80 border border-blue-800/60 text-blue-400 text-xs font-mono tracking-wider mb-4">
+            {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950/80 border border-blue-800/60 text-blue-400 text-xs font-mono tracking-wider mb-4">
               <span className="w-2 h-2 rounded-full bg-blue-400" />
               <span>AN INITIATIVE BY ADIL KHAN</span>
-            </div>
+            </div> */}
 
             {/* SecStackHQ Brand Header */}
             <div className="flex items-center gap-3.5 mb-4">

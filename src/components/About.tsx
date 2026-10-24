@@ -77,11 +77,11 @@ export const About: React.FC = () => {
               </div>
             </div>
 
-            <div className="text-xs font-bold tracking-wider text-slate-500 uppercase px-1 pt-2">
+            {/* <div className="text-xs font-bold tracking-wider text-slate-500 uppercase px-1 pt-2">
               Core Value Propositions
-            </div>
+            </div> */}
 
-            <div className="space-y-3.5">
+            {/* <div className="space-y-3.5">
               {VALUE_PROPOSITIONS.map((prop, idx) => (
                 <div
                   key={prop.title}
@@ -100,7 +100,7 @@ export const About: React.FC = () => {
                   </p>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             {/* Quick Consultation Callout */}
             <div className="p-5 rounded-xl bg-gradient-to-br from-blue-900 to-slate-900 text-white shadow-md">

@@ -67,7 +67,7 @@ export const Hero: React.FC = () => {
 
   const expertiseTags = [
     'Offensive Security',
-    'WordPress Development',
+    'Website Development',
     'Technical SEO',
     'Security Audits',
   ];
@@ -342,14 +342,14 @@ export const Hero: React.FC = () => {
                 </div>
 
                 {/* Explicit illustrative notice compliant with brief */}
-                <div className="mt-3 text-[10px] text-slate-500 text-center font-mono">
-                  * Illustrative diagnostic architecture. Real audits conducted under authorized scope.
+                <div className="mt-3 text-[10px] text-slate-500 text-center font-serif">
+                  Illustrative diagnostic architecture. Real audits conducted under authorized scope.
                 </div>
 
               </div>
 
               {/* Floating Accent Card 1: Performance / Core Web Vitals */}
-              <div className="hidden sm:flex absolute -bottom-5 -left-6 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-slate-200 shadow-lg items-center gap-3 animate-float-slow">
+              {/* <div className="hidden sm:flex absolute -bottom-5 -left-6 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-slate-200 shadow-lg items-center gap-3 animate-float-slow">
                 <div className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center text-teal-600">
                   <Server className="w-4 h-4" />
                 </div>
@@ -357,10 +357,10 @@ export const Hero: React.FC = () => {
                   <div className="text-[11px] font-semibold text-slate-900">Performance Tuned</div>
                   <div className="text-[10px] text-slate-500 font-mono">Core Web Vitals Optimized</div>
                 </div>
-              </div>
+              </div>? */}
 
               {/* Floating Accent Card 2: Security Audit Ready */}
-              <div className="hidden sm:flex absolute -top-5 -right-6 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-slate-200 shadow-lg items-center gap-3">
+              {/* <div className="hidden sm:flex absolute -top-5 -right-6 bg-white/95 backdrop-blur-md rounded-xl p-3 border border-slate-200 shadow-lg items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
                   <Lock className="w-4 h-4" />
                 </div>
@@ -368,7 +368,7 @@ export const Hero: React.FC = () => {
                   <div className="text-[11px] font-semibold text-slate-900">Authorized Testing</div>
                   <div className="text-[10px] text-slate-500 font-mono">Risk-Focused Reporting</div>
                 </div>
-              </div>
+              </div> */}
 
             </div>
           </div>

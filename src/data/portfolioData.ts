@@ -14,7 +14,7 @@ export const ASSETS = {
 
 export const PERSONAL_INFO = {
   name: 'Adil Khan',
-  title: 'Cybersecurity Practitioner & WordPress Developer',
+  title: 'Cybersecurity Practitioner & Websit Developer',
   company: 'SecStackHQ',
   companyRole: 'Founder at SecStackHQ',
   email: 'adisay01@gmail.com',
@@ -74,10 +74,10 @@ export const SERVICES: ServiceItem[] = [
     badge: 'Offensive Security',
   },
   {
-    id: 'wordpress-architecture',
-    title: 'WordPress Development & Architecture',
+    id: 'website-architecture',
+    title: 'Webbsite   Development & Architecture',
     description:
-      'Build clean, responsive, maintainable WordPress websites designed for usability, stability, performance, and future growth.',
+      'Build clean, responsive, maintainable WordPress and Custom websites designed for usability, stability, performance, and future growth.',
     deliverables: [
       'Custom WordPress websites',
       'Theme customization and development',
@@ -289,8 +289,8 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: 'enterprise-headless-wc',
     title: 'Headless WooCommerce Enterprise Architecture',
-    category: 'WordPress Architecture',
-    filterGroup: 'WordPress',
+    category: 'Website Architecture',
+    filterGroup: 'website',
     tagline: 'Decoupled WordPress & WooCommerce infrastructure delivering sub-400ms TTFB across multi-region edge caches.',
     description:
       'Designed and deployed a decoupled enterprise commerce architecture utilizing WordPress as a headless content/catalog engine connected to a performant React storefront with Redis caching and distributed Edge workers.',
@@ -382,8 +382,8 @@ export const PROJECTS: ProjectItem[] = [
   {
     id: 'global-multisite-portal',
     title: 'Enterprise Multi-Region WordPress Multisite Platform',
-    category: 'WordPress Architecture',
-    filterGroup: 'WordPress',
+    category: 'Website Architecture',
+    filterGroup: 'website',
     tagline: 'Unified multi-country localized digital platform supporting 12 regions with custom RBAC access and shared design system tokens.',
     description:
       'Architected a centralized WordPress multisite network for an international B2B organization, allowing regional teams in the US, Europe, and Asia-Pacific to publish localized content under uniform governance.',

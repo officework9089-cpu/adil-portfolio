@@ -31,7 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { label: 'About', href: '#about' },
     { label: 'Services', href: '#services' },
     { label: 'Projects', href: '#projects' },
-    { label: 'Expertise', href: '#expertise' },
+    // { label: 'Expertise', href: '#expertise' },
     { label: 'SecStackHQ', href: '#secstackhq' },
     { label: 'Contact', href: '#contact' },
   ];
@@ -68,19 +68,23 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-8">
             {/* Zone 1: Brand Wordmark (Clean single line) */}
-            <a
-              href="#home"
-              onClick={(e) => handleLinkClick(e, '#home')}
-              className="group flex items-baseline gap-2.5 whitespace-nowrap shrink-0 text-slate-900 transition-colors"
-              aria-label="Adil Khan - Home"
-            >
-              <span className="text-xl font-bold tracking-tight text-slate-950 group-hover:text-blue-600 transition-colors">
-                Adil Khan
-              </span>
-              <span className="hidden sm:inline-block text-xs font-medium text-slate-500 tracking-normal border-l border-slate-200 pl-2.5">
-                Cybersecurity Practitioner
-              </span>
-            </a>
+           
+<a
+  href="#home"
+  onClick={(e) => handleLinkClick(e, '#home')}
+  className="group flex items-center gap-2.5 whitespace-nowrap shrink-0 text-slate-900 transition-colors"
+  aria-label="Adil Khan - Home"
+>
+  <span className="flex items-center text-2xl font-bold tracking-tight text-slate-950 group-hover:text-blue-600 transition-colors">
+    Adil Khan
+  </span>
+
+  <span className="hidden sm:inline-block text-xs font-medium text-slate-500 tracking-normal border-l border-slate-200 pl-2.5">
+    Cybersecurity Practitioner <br />
+    website architect & performance engineer
+  </span>
+</a>
+
 
             {/* Zone 2: Nav Links (Desktop) */}
             <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">

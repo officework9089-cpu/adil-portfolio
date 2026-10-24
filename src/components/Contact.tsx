@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Mail, 
-  Phone, 
-  MessageSquare, 
-  Send, 
-  Check, 
-  Copy, 
-  ExternalLink, 
+import {
+  Mail,
+  Phone,
+  MessageSquare,
+  Send,
+  Check,
+  Copy,
+  ExternalLink,
   AlertCircle,
   Briefcase,
   Shield,
@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { PERSONAL_INFO, SERVICES } from '../data/portfolioData';
 import { ContactFormData, ContactFormErrors } from '../types';
+import { supabase } from '../lib/supabase';
 
 interface ContactProps {
   preSelectedService: string;
@@ -33,6 +34,7 @@ export const Contact: React.FC<ContactProps> = ({ preSelectedService }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [submissionError, setSubmissionError] = useState('');
 
   useEffect(() => {
     if (preSelectedService) {
@@ -81,43 +83,62 @@ export const Contact: React.FC<ContactProps> = ({ preSelectedService }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmissionError('');
+
     if (!validate()) return;
 
     setIsSubmitting(true);
 
-    // Prepare mailto fallback URL
-    const subject = encodeURIComponent(`Project Inquiry: ${formData.service} - ${formData.fullName}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.fullName}\nEmail: ${formData.email}\nService: ${formData.service}\n\nProject Details:\n${formData.projectDetails}\n\n(Sent via Adil Khan Portfolio Inquiry Form)`
-    );
-    const mailtoUrl = `mailto:${PERSONAL_INFO.email}?subject=${subject}&body=${body}`;
+    try {
+      const { error } = await supabase
+        .from('contact_inquiries')
+        .insert({
+          full_name: formData.fullName.trim(),
+          email: formData.email.trim().toLowerCase(),
+          service: formData.service,
+          project_details: formData.projectDetails.trim(),
+        });
 
-    // Simulate clean client packaging and present user with confirmation & launch options
-    setTimeout(() => {
-      setIsSubmitting(false);
+      if (error) {
+        throw error;
+      }
+
+      // Only show confirmation after Supabase successfully saves.
       setIsSubmitted(true);
-      // Automatically prompt default client
-      window.location.href = mailtoUrl;
-    }, 700);
+    } catch (error) {
+      console.error('Failed to save contact inquiry:', error);
+
+      setSubmissionError(
+        'We could not save your inquiry. Please try again or contact us directly by email or WhatsApp.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleReset = () => {
-    setIsSubmitted(false);
-    setFormData({
-      fullName: '',
-      email: '',
-      service: 'Offensive Security & Penetration Testing',
-      projectDetails: '',
-    });
-    setErrors({});
-  };
 
+const handleReset = () => {
+  setIsSubmitted(false);
+  setSubmissionError('');
+
+  setFormData({
+    fullName: '',
+    email: '',
+    service:
+      preSelectedService ||
+      'Offensive Security & Penetration Testing',
+    projectDetails: '',
+  });
+
+  setErrors({});
+};
   return (
     <section id="contact" className="py-20 md:py-28 bg-gradient-to-b from-white via-[#F5F8FC]/50 to-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-14 md:mb-18">
           <div className="text-xs font-bold tracking-wider text-blue-600 uppercase mb-2">
@@ -133,10 +154,10 @@ export const Contact: React.FC<ContactProps> = ({ preSelectedService }) => {
 
         {/* Contact Layout: Info Column + Interactive Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          
+
           {/* Left Column: Direct Channels & Verified Credentials */}
           <div className="lg:col-span-5 space-y-5">
-            
+
             {/* Email Card */}
             <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:border-blue-300 transition-all">
               <div className="flex items-center justify-between mb-3">
@@ -230,10 +251,11 @@ export const Contact: React.FC<ContactProps> = ({ preSelectedService }) => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-extrabold text-slate-950">
-                    Inquiry Prepared & Dispatched
+                    Inquiry Saved Successfully
                   </h3>
                   <p className="text-sm text-slate-600 mt-2 max-w-md mx-auto">
-                    Your inquiry details have been formatted for <strong className="text-slate-900">{PERSONAL_INFO.email}</strong>. If your mail client did not automatically open, choose one of the direct options below:
+                    Your project inquiry has been saved successfully. You can also contact us
+                    directly by email or WhatsApp if you would like to discuss your requirements.
                   </p>
                 </div>
 
@@ -303,12 +325,11 @@ export const Contact: React.FC<ContactProps> = ({ preSelectedService }) => {
                       setFormData({ ...formData, fullName: e.target.value });
                       if (errors.fullName) setErrors({ ...errors, fullName: undefined });
                     }}
-                    placeholder="e.g. Alex Morgan"
-                    className={`w-full px-4 py-2.5 text-sm rounded-xl border bg-white text-slate-900 transition-colors focus:outline-none ${
-                      errors.fullName
-                        ? 'border-red-400 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                        : 'border-slate-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600'
-                    }`}
+                    placeholder="e.g. Adil Aslam"
+                    className={`w-full px-4 py-2.5 text-sm rounded-xl border bg-white text-slate-900 transition-colors focus:outline-none ${errors.fullName
+                      ? 'border-red-400 focus:border-red-500 focus:ring-1 focus:ring-red-500'
+                      : 'border-slate-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600'
+                      }`}
                   />
                   {errors.fullName && (
                     <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
@@ -332,12 +353,11 @@ export const Contact: React.FC<ContactProps> = ({ preSelectedService }) => {
                       setFormData({ ...formData, email: e.target.value });
                       if (errors.email) setErrors({ ...errors, email: undefined });
                     }}
-                    placeholder="alex@company.com"
-                    className={`w-full px-4 py-2.5 text-sm rounded-xl border bg-white text-slate-900 transition-colors focus:outline-none ${
-                      errors.email
-                        ? 'border-red-400 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                        : 'border-slate-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600'
-                    }`}
+                    placeholder="adil@company.com"
+                    className={`w-full px-4 py-2.5 text-sm rounded-xl border bg-white text-slate-900 transition-colors focus:outline-none ${errors.email
+                      ? 'border-red-400 focus:border-red-500 focus:ring-1 focus:ring-red-500'
+                      : 'border-slate-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600'
+                      }`}
                   />
                   {errors.email && (
                     <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
@@ -390,11 +410,10 @@ export const Contact: React.FC<ContactProps> = ({ preSelectedService }) => {
                       if (errors.projectDetails) setErrors({ ...errors, projectDetails: undefined });
                     }}
                     placeholder="Outline your application stack, timeline, objectives, or security scope..."
-                    className={`w-full px-4 py-2.5 text-sm rounded-xl border bg-white text-slate-900 transition-colors focus:outline-none resize-y ${
-                      errors.projectDetails
-                        ? 'border-red-400 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-                        : 'border-slate-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600'
-                    }`}
+                    className={`w-full px-4 py-2.5 text-sm rounded-xl border bg-white text-slate-900 transition-colors focus:outline-none resize-y ${errors.projectDetails
+                      ? 'border-red-400 focus:border-red-500 focus:ring-1 focus:ring-red-500'
+                      : 'border-slate-200 focus:border-blue-600 focus:ring-1 focus:ring-blue-600'
+                      }`}
                   />
                   {errors.projectDetails && (
                     <p className="text-xs text-red-600 mt-1 flex items-center gap-1">
@@ -414,8 +433,7 @@ export const Contact: React.FC<ContactProps> = ({ preSelectedService }) => {
                     {isSubmitting ? (
                       <>
                         <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        <span>Formatting Inquiry...</span>
-                      </>
+                        <span>Saving Inquiry...</span>                      </>
                     ) : (
                       <>
                         <span>Send Project Inquiry</span>
@@ -427,6 +445,17 @@ export const Contact: React.FC<ContactProps> = ({ preSelectedService }) => {
                     Direct confidential dispatch. No promotional spam or data harvesting.
                   </p>
                 </div>
+
+                {submissionError && (
+                  <div
+                    role="alert"
+                    className="flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"
+                  >
+                    <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                    <p>{submissionError}</p>
+                  </div>
+                )}
+
               </form>
             )}
           </div>
